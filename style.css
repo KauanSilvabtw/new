@@ -17,3 +17,36 @@ body {
     display: none;
   }
   
+  @media (min-width: 1024px) {
+    .container {
+      padding: 60px;
+    }
+  }
+
+/* Header styles */
+header {
+  text-align: center;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 10px 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* Phrases section styles */
+.phrases {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.phrases h2 {
+  font-size: 24px;
+}
+
+.phrases p {
+  font-size: 18px;
+  margin: 10px 0;
+}

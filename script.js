@@ -1,38 +1,43 @@
-const inputText = document.getElementById("input-text");
-const hiddenContent = document.querySelectorAll(".hidden-content");
+document.getElementById("input-text").addEventListener("input", function() {
+  var inputValue = this.value.toLowerCase();
 
-inputText.addEventListener("input", function() {
-  const inputValue = inputText.value.toLowerCase();
-
-  hiddenContent.forEach(content => {
-    content.style.display = "none";
-  });
-
-  if (inputValue === "esquisita") {
-    document.getElementById("fro-content").style.display = "block";
-    playAudio("audio");
-  } else if (inputValue === "lindeza") {
+  if (inputValue === "pt1") {
+    document.getElementById("palavra-content0").style.display = "block";
+    playMedia("audio");
+    playMedia("video");
+  } else if (inputValue === "pt2") {
     document.getElementById("palavra1-content").style.display = "block";
-    playAudio("audio-palavra1");
-  } else if (inputValue === "ruela frouxa") {
+    playMedia("audio-palavra1");
+    playMedia("video-palavra1");
+  } else if (inputValue === "pt3") {
     document.getElementById("palavra2-content").style.display = "block";
-    playAudio("audio-palavra2");
-  } else if (inputValue === "quer sonegar imposto cmg?") {
+    playMedia("audio-palavra2");
+    playMedia("video-palavra2");
+  } else if (inputValue === "pt4") {
     document.getElementById("palavra3-content").style.display = "block";
-    playAudio("audio-palavra3");
+    playMedia("audio-palavra3");
+    playMedia("video-palavra3");
   } else {
-    pauseAudio();
+    hideAllContent();
+    pauseMedia();
   }
 });
 
-function playAudio(audioId) {
-  const audio = document.getElementById(audioId);
-  audio.play();
+function playMedia(mediaId) {
+  var media = document.getElementById(mediaId);
+  media.play();
 }
 
-function pauseAudio() {
-  const audio = document.querySelectorAll("audio");
-  audio.forEach(a => {
-    a.pause();
+function pauseMedia() {
+  var mediaElements = document.querySelectorAll("audio, video");
+  mediaElements.forEach(function(media) {
+    media.pause();
+  });
+}
+
+function hideAllContent() {
+  var hiddenContents = document.querySelectorAll(".hidden-content");
+  hiddenContents.forEach(function(content) {
+    content.style.display = "none";
   });
 }
